@@ -87,20 +87,22 @@
                       <span class="nav-text">Sản phẩm</span> <b class="caret"></b>
                     </a>
                   </li>
-                  <li  class="active  " >
+                  <li  class="active expand " >
                     <a class="sidenav-item-link" href="#"  style="cursor:context-menu;"
                       aria-expanded="false" aria-controls="ui-elements">
                       <i class="mdi mdi-folder-multiple-outline"></i>
                       <span class="nav-text">Thêm sản phẩm</span> <b class="caret"></b>
                     </a>
                   </li>
+                  <?php if($user['role'] === 'admin'): ?>
                   <li  class="" >
-                    <a class="sidenav-item-link" href="<?= Config::SITE_URL . 'public/user' ?>" 
+                    <a class="sidenav-item-link" href="<?= Config::SITE_URL . 'public/user' ?>"
                       aria-expanded="false" aria-controls="charts">
                       <i class="mdi mdi-chart-pie"></i>
                       <span class="nav-text">Người dùng</span> <b class="caret"></b>
                     </a>
                   </li>
+                  <?php endif; ?> 
               </ul>
             </div>
             <hr class="separator" />
@@ -316,9 +318,11 @@
                               <input type="file" multiple class="form-control-file" id="album" name="album[]">
                               <div id="box" style="margin-top: 10px">
                                 <?php if(isset($images_)): ?>
-                                <?php foreach($images_ as $image): ?>
-                                <img id="image-album" style="width: auto; height:100px;" src="<?= Config::SITE_URL . 'public/img/product_img/'. $image['name'] .Config::EXT_IMG ?>"> </img> 
-                                <?php endforeach; ?>
+                                  <?php foreach($images_ as $image): ?>
+                                    <img id="image-album" style="width: auto; height:100px;" src="<?= Config::SITE_URL . 'public/img/product_img/'. $image['name'] .Config::EXT_IMG ?>"> </img> 
+                                  <?php endforeach; ?>
+                                <?php else: ?>
+                                    <img id="image-album" style="width: auto; height:100px;" src=""> </img> 
                                 <?php endif; ?>
                               </div>
                           </div>

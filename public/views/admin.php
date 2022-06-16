@@ -89,20 +89,21 @@ if(!isset($_SESSION['user'])||empty($_SESSION['user']))
                 
 
                 
-                  <li  class="active" >
+                  <li  class="active  expand" >
                     <a class=" sidenav-item-link" href="#"  style="cursor:context-menu;"
                       aria-expanded="false" aria-controls="dashboard">
                       <i class="mdi mdi-view-dashboard-outline"></i>
                       <span class="nav-text">Sản phẩm</span> <b class="caret"></b>
                     </a>
                   </li>
-                  <li  class="  expand" >
+                  <li  class="" >
                     <a class="sidenav-item-link" href="<?= Config::SITE_URL . 'public/product' ?>" 
                       aria-expanded="false" aria-controls="ui-elements">
                       <i class="mdi mdi-folder-multiple-outline"></i>
                       <span class="nav-text">Thêm sản phẩm</span> <b class="caret"></b>
                     </a>
                   </li>
+                  <?php if($user['role'] === 'admin'): ?>
                   <li  class="" >
                     <a class="sidenav-item-link" href="<?= Config::SITE_URL . 'public/user' ?>"
                       aria-expanded="false" aria-controls="charts">
@@ -110,6 +111,7 @@ if(!isset($_SESSION['user'])||empty($_SESSION['user']))
                       <span class="nav-text">Người dùng</span> <b class="caret"></b>
                     </a>
                   </li>
+                  <?php endif; ?> 
               </ul>
             </div>
             <hr class="separator" />
