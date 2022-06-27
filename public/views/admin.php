@@ -294,7 +294,7 @@ if(!isset($_SESSION['user'])||empty($_SESSION['user']))
               </tr>
             </thead>
             <tbody>
-              <?php if(!isset($products_)): ?>
+              <?php if(!isset($products_) || empty($products_)): ?>
                 <td > <a class="text-dark" href="<?=Config::SITE_URL . 'public/admin' ?>">User này không có sản phẩm để hiển thị. Vui lòng quay về trang chủ</a></td>
               <?php else: ?>
                 <?php foreach($products_ as $product): ?>
